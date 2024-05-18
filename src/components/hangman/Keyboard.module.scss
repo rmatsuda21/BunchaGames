@@ -1,0 +1,44 @@
+.keyboard {
+  width: 100%;
+
+  div {
+    display: flex;
+    justify-content: center;
+    gap: 0.3rem;
+    margin-bottom: 0.3rem;
+
+    width: 100%;
+  }
+}
+
+.key {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1.5rem;
+  cursor: pointer;
+
+  width: 1.75rem;
+  border-radius: 2px;
+  border: none;
+
+  &:disabled {
+    cursor: unset;
+  }
+
+  &:hover {
+    filter: brightness(0.9);
+  }
+}
+
+.answer {
+  &:disabled {
+    border: none;
+    background-color: darkolivegreen;
+  }
+}
+
+.noClick {
+  pointer-events: none;
+}

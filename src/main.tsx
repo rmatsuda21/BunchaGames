@@ -2,13 +2,35 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import App from "./App.tsx";
 import "./index.css";
+import "./reset.css";
+
+import Homepage from "@/pages";
+import HangmanPage from "@/pages/games/hangman.tsx";
+import GamesPage from "@/pages/games";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    children: [
+      {
+        path: "",
+        element: <Homepage />,
+      },
+      {
+        path: "games",
+        children: [
+          {
+            path: "",
+            element: <GamesPage />,
+          },
+          {
+            path: "hangman",
+            element: <HangmanPage />,
+          },
+        ],
+      },
+    ],
   },
 ]);
 
