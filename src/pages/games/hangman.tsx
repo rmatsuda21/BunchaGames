@@ -1,8 +1,9 @@
-import { useMemo, useState } from "react";
-import { words } from "@/assets/hangman/english_1k.json";
+import { useEffect, useMemo, useState } from "react";
+import confetti from "canvas-confetti";
 
 import Keyboard from "@/components/hangman/Keyboard";
 
+import { words } from "@/assets/hangman/english_1k.json";
 import styles from "./handman.module.scss";
 
 const MAX_INCORRECT_GUESSES = 6;
@@ -25,6 +26,30 @@ const HangmanPage = () => {
   const isGameWon = correctLetters.length === wordSet.size;
   const isGameLost = incorrectLetters >= MAX_INCORRECT_GUESSES;
 
+  useEffect(() => {
+    const shapes = [
+      confetti.shapeFromText({ text: isGameWon ? "🎉" : "😢", scalar: 100 }),
+    ];
+    if (isGameWon || isGameLost) {
+      confetti({
+        particleCount: 50,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0, y: 0.9 },
+        shapes,
+        scalar: 2,
+      });
+      confetti({
+        particleCount: 50,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1, y: 0.9 },
+        shapes,
+        scalar: 2,
+      });
+    }
+  }, [isGameWon, isGameLost]);
+
   const onPlayAgain = () => {
     setWord(getRandomWord());
     setGuessedLetters(new Set());
@@ -38,8 +63,8 @@ const HangmanPage = () => {
     <div className={styles.wrapper}>
       <h1>Hangman</h1>
       {incorrectLetters}
-      {isGameLost && <div>Game lost!</div>}
-      {isGameWon && <div>Game won!</div>}
+      {isGameLost && <div>You Lose!</div>}
+      {isGameWon && <div>You Win!</div>}
       <div className={styles.wordDisplay}>
         {Array.from(word).map((letter, index) => (
           <span key={`letter_${index}`}>
