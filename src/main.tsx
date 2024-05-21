@@ -6,24 +6,28 @@ import "./index.css";
 import "./reset.css";
 
 import Homepage from "@/pages";
+import ErrorPage from "@/error";
 import HangmanPage from "@/pages/games/hangman.tsx";
 import GamesPage from "@/pages/games";
+import GamesPageLayout from "./pages/games/layout";
 
 const router = createBrowserRouter([
   {
     path: "/",
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "",
         element: <Homepage />,
       },
       {
-        path: "games",
+        path: "/games",
+        element: <GamesPage />,
+      },
+      {
+        path: "/games",
+        element: <GamesPageLayout />,
         children: [
-          {
-            path: "",
-            element: <GamesPage />,
-          },
           {
             path: "hangman",
             element: <HangmanPage />,

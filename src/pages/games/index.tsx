@@ -1,8 +1,12 @@
+import { Link } from "react-router-dom";
+
+import styles from "./index.module.scss";
+
 const GamesPage = () => {
   return (
-    <div>
+    <div className={styles.wrapper}>
       <h1>Games</h1>
-      <p>Games page content</p>
+      <Link to="/games/hangman">Hangman</Link>
     </div>
   );
 };
