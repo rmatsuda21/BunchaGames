@@ -4,8 +4,7 @@ import cn from "classnames";
 import styles from "./ft10.module.scss";
 
 const FT10Page = () => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [maxScore, setMaxScore] = useState(10);
+  const [maxScore] = useState(10);
   const [p1Score, setP1Score] = useState(0);
   const [p2Score, setP2Score] = useState(0);
 
