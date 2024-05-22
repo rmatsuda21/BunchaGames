@@ -10,6 +10,7 @@ import ErrorPage from "@/error";
 import HangmanPage from "@/pages/games/hangman.tsx";
 import GamesPage from "@/pages/games";
 import GamesPageLayout from "./pages/games/layout";
+import FT10Page from "./pages/games/ft10";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
             element: <HangmanPage />,
           },
         ],
+      },
+      {
+        path: "ft10",
+        element: <FT10Page />,
       },
     ],
   },
