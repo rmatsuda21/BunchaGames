@@ -40,7 +40,9 @@ const FT10Page = () => {
         scalar: 2,
       });
     }
+  }, [p1Win]);
 
+  useEffect(() => {
     if (p2Win) {
       confetti({
         particleCount: 100,
@@ -50,7 +52,7 @@ const FT10Page = () => {
         scalar: 2,
       });
     }
-  }, [p1Win, p2Win]);
+  }, [p2Win]);
 
   return (
     <div className={styles.wrapper}>
