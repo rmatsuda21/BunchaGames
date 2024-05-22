@@ -15,20 +15,24 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-
-  font-size: 1.5rem;
-  cursor: pointer;
-
   width: 1.75rem;
   border-radius: 2px;
   border: none;
 
-  &:disabled {
-    cursor: unset;
-  }
+  background-color: rgb(107, 107, 107);
+  color: white;
+
+  font-size: 1.5rem;
+  cursor: pointer;
 
   &:hover {
     filter: brightness(0.9);
+  }
+
+  &:disabled {
+    cursor: unset;
+    filter: none;
+    background-color: #333;
   }
 }
 
