@@ -79,7 +79,9 @@ const HangmanPage = () => {
         isGameEnded={isGameWon || isGameLost}
       />
       {(isGameLost || isGameWon) && (
-        <button onClick={onPlayAgain}>Play Again</button>
+        <button className={styles.playAgain} onClick={onPlayAgain}>
+          Play Again
+        </button>
       )}
     </div>
   );
