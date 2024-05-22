@@ -31,7 +31,6 @@ const FT10Page = () => {
 
   return (
     <div className={styles.wrapper}>
-      <h1>First to 10</h1>
       <div
         className={cn({ [`${styles.p1}`]: true, [`${styles.winner}`]: p1Win })}
         onClick={handleP1Click}
