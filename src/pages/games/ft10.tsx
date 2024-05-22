@@ -32,25 +32,21 @@ const FT10Page = () => {
 
   useEffect(() => {
     if (p1Win) {
-      const shapes = [confetti.shapeFromText({ text: "🎉", scalar: 100 })];
       confetti({
         particleCount: 100,
         angle: 60,
         spread: 90,
         origin: { x: 0, y: 0.9 },
-        shapes,
         scalar: 2,
       });
     }
 
     if (p2Win) {
-      const shapes = [confetti.shapeFromText({ text: "🎉", scalar: 100 })];
       confetti({
         particleCount: 100,
         angle: 120,
         spread: 90,
         origin: { x: 1, y: 0.9 },
-        shapes,
         scalar: 2,
       });
     }
