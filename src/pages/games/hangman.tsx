@@ -1,13 +1,15 @@
 import { useEffect, useMemo, useState } from "react";
 import confetti from "canvas-confetti";
+import cn from "classnames";
 
 import Keyboard from "@/components/hangman/Keyboard";
 import { words } from "@/assets/hangman/english_1k.json";
 
 import styles from "./hangman.module.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart, faHeartBroken } from "@fortawesome/free-solid-svg-icons";
 
 const MAX_INCORRECT_GUESSES = 6;
-
 const WORDLIST = words.filter((word) => word.length >= 5 && word.length <= 10);
 
 const getRandomWord = () =>
@@ -59,10 +61,22 @@ const HangmanPage = () => {
     setGuessedLetters((prev) => new Set([...prev, letter]));
   };
 
+  const Hearts = () => {
+    const hearts = Array.from({ length: MAX_INCORRECT_GUESSES }, (_, index) => {
+      const isLost = index < incorrectLetters;
+      const icon = isLost ? faHeartBroken : faHeart;
+      const className = cn({
+        [`${styles.broken}`]: isLost,
+      });
+      return <FontAwesomeIcon className={className} icon={icon} />;
+    });
+    return <div className={styles.lifeDisplay}>{hearts}</div>;
+  };
+
   return (
     <div className={styles.wrapper}>
       <h1>Hangman</h1>
-      {incorrectLetters}
+      {<Hearts />}
       {isGameLost && <div>You Lose!</div>}
       {isGameWon && <div>You Win!</div>}
       <div className={styles.wordDisplay}>

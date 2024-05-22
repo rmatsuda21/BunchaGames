@@ -30,3 +30,14 @@
     width: 2rem;
   }
 }
+
+.lifeDisplay {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+
+  .broken {
+    color: #777;
+  }
+}
