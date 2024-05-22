@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import cn from "classnames";
+import confetti from "canvas-confetti";
 
 import styles from "./ft10.module.scss";
 
@@ -28,6 +29,32 @@ const FT10Page = () => {
 
   const p1Win = p1Score === maxScore;
   const p2Win = p2Score === maxScore;
+
+  useEffect(() => {
+    if (p1Win) {
+      const shapes = [confetti.shapeFromText({ text: "🎉", scalar: 100 })];
+      confetti({
+        particleCount: 100,
+        angle: 60,
+        spread: 90,
+        origin: { x: 0, y: 0.9 },
+        shapes,
+        scalar: 2,
+      });
+    }
+
+    if (p2Win) {
+      const shapes = [confetti.shapeFromText({ text: "🎉", scalar: 100 })];
+      confetti({
+        particleCount: 100,
+        angle: 120,
+        spread: 90,
+        origin: { x: 1, y: 0.9 },
+        shapes,
+        scalar: 2,
+      });
+    }
+  }, [p1Win, p2Win]);
 
   return (
     <div className={styles.wrapper}>
