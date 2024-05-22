@@ -2,8 +2,8 @@ import { useEffect, useMemo, useState } from "react";
 import confetti from "canvas-confetti";
 
 import Keyboard from "@/components/hangman/Keyboard";
-
 import { words } from "@/assets/hangman/english_1k.json";
+
 import styles from "./hangman.module.scss";
 
 const MAX_INCORRECT_GUESSES = 6;
