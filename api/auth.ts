@@ -12,7 +12,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     client_secret: process.env.START_GG_OAUTH_SECRET,
     grant_type: "authorization_code",
     code: code,
-    redirect_uri: "https://bunch-games.vercel.app",
+    redirect_uri: "https://buncha-games.vercel.app",
     scope: "user.identity",
   };
 

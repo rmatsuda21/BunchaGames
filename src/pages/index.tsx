@@ -39,7 +39,7 @@ const Homepage = () => {
   url.searchParams.set("scope", encodeURIComponent("user.identity"));
   url.searchParams.set(
     "redirect_uri",
-    "https://bunch-games.vercel.app/api/auth"
+    "https://buncha-games.vercel.app/api/auth"
   );
 
   return (
