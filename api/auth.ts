@@ -29,7 +29,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   });
 
   const json = await _res.json();
+  const { access_token, expires_in, refresh_token } = json;
+  const expiration_date = new Date(
+    Date.now() + expires_in * 1000
+  ).toISOString();
 
-  res.setHeader("set-cookie", `test=abc; HttpOnly;`);
+  res.setHeader(
+    "set-cookie",
+    `start-gg-auth=${JSON.stringify({
+      access_token,
+      expiration_date,
+      refresh_token,
+    })}; HttpOnly;`
+  );
   return res.status(200).json({ code, json, data });
 }
