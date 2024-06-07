@@ -35,11 +35,12 @@ const Homepage = () => {
   const url = new URL("https://start.gg/oauth/authorize");
   url.searchParams.set("response_type", "code");
   url.searchParams.set("client_id", "155");
+
+  url.searchParams.set("scope", encodeURIComponent("user.identity"));
   url.searchParams.set(
-    "scope",
-    encodeURIComponent("tournament.reporter tournament.manager user.identity")
+    "redirect_uri",
+    "https://bunch-games.vercel.app/api/auth"
   );
-  url.searchParams.set("redirect_uri", "http://localhost:3000/auth/startgg");
 
   return (
     <div className={styles.wrapper}>
