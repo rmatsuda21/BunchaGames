@@ -19,6 +19,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const headers = {
     "Content-Type": "application/json",
   };
+
+  console.log(data);
+
   const _res = await fetch("https://api.start.gg/oauth/access_token", {
     method: "POST",
     headers,
