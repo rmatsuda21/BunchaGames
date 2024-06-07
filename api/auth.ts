@@ -20,8 +20,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     "Content-Type": "application/json",
   };
 
-  console.log(data);
-
   const _res = await fetch("https://api.start.gg/oauth/access_token", {
     method: "POST",
     headers,
@@ -43,5 +41,5 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     })}; HttpOnly;`
   );
 
-  return res.redirect(308, req.headers.host || "/");
+  return res.redirect(308, `https://${req.headers.host}`);
 }
