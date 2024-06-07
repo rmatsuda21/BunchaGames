@@ -42,5 +42,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       refresh_token,
     })}; HttpOnly;`
   );
-  return res.status(200).json({ code, json, data });
+
+  return res.redirect(308, req.headers.host || "/");
 }
