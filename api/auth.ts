@@ -33,12 +33,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   ).toISOString();
 
   res.setHeader(
-    "set-cookie",
+    "Set-Cookie",
     `start-gg-auth=${JSON.stringify({
       access_token,
       expiration_date,
       refresh_token,
-    })}; HttpOnly;`
+    })}; HttpOnly; Secure;`
   );
   window.localStorage.setItem(
     "start-gg-auth",
