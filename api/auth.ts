@@ -40,14 +40,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       refresh_token,
     })}; HttpOnly; Secure;`
   );
-  window.localStorage.setItem(
-    "start-gg-auth",
-    JSON.stringify({
-      access_token,
-      expiration_date,
-      refresh_token,
-    })
-  );
+  // window.localStorage.setItem(
+  //   "start-gg-auth",
+  //   JSON.stringify({
+  //     access_token,
+  //     expiration_date,
+  //     refresh_token,
+  //   })
+  // );
 
   return res.redirect(308, `https://${req.headers.host}`);
 }
