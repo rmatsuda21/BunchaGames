@@ -4,6 +4,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const code = (req.query?.code as string) || "";
 
   if (!code) {
+    res.setHeader(
+      "Set-Cookie",
+      `start-gg-auth=34953409; Domain=${req.headers.host}; Secure; HttpOnly;`
+    );
     return res.redirect(302, "/");
   }
 
