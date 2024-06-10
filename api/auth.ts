@@ -6,9 +6,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (!code) {
     res.setHeader(
       "Set-Cookie",
-      `start-gg-auth=34953409; Domain=${req.headers.host}; Secure; HttpOnly;`
+      `start-gg-auth='34953409'; Domain=${req.headers.host}; Secure; HttpOnly;`
     );
-    return res.status(400).send("No code provided!");
+    return res.status(400).json("No code provided!");
   }
 
   // const data = {
@@ -49,7 +49,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   // );
   res.setHeader(
     "Set-Cookie",
-    `start-gg-auth=123; Domain=${req.headers.host}; Secure; HttpOnly;`
+    `start-gg-auth='123'; Domain=${req.headers.host}; Secure; HttpOnly;`
   );
   // window.localStorage.setItem(
   //   "start-gg-auth",
@@ -60,5 +60,5 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   //   })
   // );
 
-  return res.redirect(302, `/`);
+  return res.redirect(308, `/`);
 }
