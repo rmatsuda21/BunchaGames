@@ -38,7 +38,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       access_token,
       expiration_date,
       refresh_token,
-    })}; HttpOnly; Secure;`
+    })}; HttpOnly; SameSite=Strict; Expires=${expires_in}};`
   );
   // window.localStorage.setItem(
   //   "start-gg-auth",
@@ -49,5 +49,5 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   //   })
   // );
 
-  return res.redirect(308, `https://${req.headers.host}`);
+  return res.redirect(302, `https://${req.headers.host}`);
 }
