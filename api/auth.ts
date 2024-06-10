@@ -7,32 +7,31 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.redirect(302, "/");
   }
 
-  const data = {
-    client_id: process.env.CLIENT_ID,
-    client_secret: process.env.START_GG_OAUTH_SECRET,
-    grant_type: "authorization_code",
-    code: code,
-    redirect_uri: "https://buncha-games.vercel.app/api/auth",
-    scope: "user.identity",
-  };
+  // const data = {
+  //   client_id: process.env.CLIENT_ID,
+  //   client_secret: process.env.START_GG_OAUTH_SECRET,
+  //   grant_type: "authorization_code",
+  //   code: code,
+  //   redirect_uri: "https://buncha-games.vercel.app/api/auth",
+  //   scope: "user.identity",
+  // };
 
-  const headers = {
-    "Content-Type": "application/json",
-  };
+  // const headers = {
+  //   "Content-Type": "application/json",
+  // };
 
-  const _res = await fetch("https://api.start.gg/oauth/access_token", {
-    method: "POST",
-    headers,
-    body: JSON.stringify(data),
-  });
+  // const _res = await fetch("https://api.start.gg/oauth/access_token", {
+  //   method: "POST",
+  //   headers,
+  //   body: JSON.stringify(data),
+  // });
 
-  const json = await _res.json();
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { access_token, expires_in, refresh_token } = json;
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const expiration_date = new Date(
-    Date.now() + expires_in * 1000
-  ).toISOString();
+  // const json = await _res.json();
+
+  // const { access_token, expires_in, refresh_token } = json;
+  // const expiration_date = new Date(
+  //   Date.now() + expires_in * 1000
+  // ).toISOString();
 
   // res.setHeader(
   //   "Set-Cookie",
