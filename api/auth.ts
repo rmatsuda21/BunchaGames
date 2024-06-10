@@ -8,7 +8,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       "Set-Cookie",
       `start-gg-auth=34953409; Domain=${req.headers.host}; Secure; HttpOnly;`
     );
-    return res.redirect(302, "/");
+    return res.status(400).send("No code provided!");
   }
 
   // const data = {
