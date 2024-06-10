@@ -60,5 +60,5 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   //   })
   // );
 
-  return res.redirect(302, `https://${req.headers.host}`);
+  return res.redirect(302, `/`);
 }
