@@ -27,7 +27,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   });
 
   const json = await _res.json();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { access_token, expires_in, refresh_token } = json;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const expiration_date = new Date(
     Date.now() + expires_in * 1000
   ).toISOString();
