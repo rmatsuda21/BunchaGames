@@ -32,13 +32,19 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     Date.now() + expires_in * 1000
   ).toISOString();
 
+  // res.setHeader(
+  //   "Set-Cookie",
+  //   `start-gg-auth=${JSON.stringify({
+  //     access_token,
+  //     expiration_date,
+  //     refresh_token,
+  //   })}; HttpOnly; SameSite=Strict; Expires=${expires_in}}; Domain=${
+  //     req.headers.host
+  //   };`
+  // );
   res.setHeader(
     "Set-Cookie",
-    `start-gg-auth=${JSON.stringify({
-      access_token,
-      expiration_date,
-      refresh_token,
-    })}; HttpOnly; SameSite=Strict; Expires=${expires_in}};`
+    `start-gg-auth=123; Domain=${req.headers.host}; Secure; HttpOnly;`
   );
   // window.localStorage.setItem(
   //   "start-gg-auth",
