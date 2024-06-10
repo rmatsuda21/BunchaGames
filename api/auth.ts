@@ -47,7 +47,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   //     req.headers.host
   //   };`
   // );
-  res.setHeader("set-cookie", `start-gg-auth='123';`);
+  res.setHeader(
+    "set-cookie",
+    `start-gg-auth='34598'; Path=/; Secure; HttpOnly; SameSite=Strict;`
+  );
   // window.localStorage.setItem(
   //   "start-gg-auth",
   //   JSON.stringify({
