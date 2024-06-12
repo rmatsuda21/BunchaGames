@@ -1,39 +1,8 @@
-// import { gql, useApolloClient } from "@apollo/client";
-import { useEffect } from "react";
-import Cookies from "js-cookie";
-
 import LinkButton from "@/components/shared/LinkButton";
 
 import styles from "./index.module.scss";
 
 const Homepage = () => {
-  // const client = useApolloClient();
-
-  useEffect(() => {
-    // const getData = async () => {
-    //   const query = gql`
-    //     query GetEventId($slug: String) {
-    //       event(slug: $slug) {
-    //         id
-    //         name
-    //       }
-    //     }
-    //   `;
-
-    //   const result = await client.query({
-    //     query,
-    //     variables: {
-    //       slug: "tournament/genesis-9-1/event/ultimate-singles",
-    //     },
-    //   });
-
-    //   console.log(result.data);
-    // };
-
-    // getData();
-    console.log(Cookies.get());
-  }, []);
-
   const url = new URL("https://start.gg/oauth/authorize");
   url.searchParams.set("response_type", "code");
   url.searchParams.set("client_id", "155");
