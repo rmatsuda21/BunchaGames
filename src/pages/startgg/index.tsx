@@ -14,9 +14,7 @@ const StartGGPage = () => {
     useState<ApolloClient<NormalizedCacheObject> | null>(null);
 
   useEffect(() => {
-    const cookie = JSON.parse(
-      Cookies.get(COOKIES.STARTGG_TOKEN) || "{}"
-    )?.access_token;
+    const cookie = Cookies.get(COOKIES.STARTGG_TOKEN);
 
     setClient(
       new ApolloClient({
