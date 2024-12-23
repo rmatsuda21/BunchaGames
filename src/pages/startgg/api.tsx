@@ -27,7 +27,7 @@ const RediectPage = () => {
       expires: expiration,
     });
     Cookies.set("start-gg-refresh", token.refresh_token, {
-      expires: new Date(expiration.getDate() + 7),
+      expires: new Date(expiration.getTime() + 7 * 24 * 60 * 60 * 1000),
     });
 
     replaceAndRedirect();
