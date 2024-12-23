@@ -13,6 +13,7 @@ import GamesPageLayout from "@/pages/games/layout";
 import FT10Page from "@/pages/games/ft10/ft10";
 import StartGGPage from "@/pages/startgg";
 import SuperTicTacToePage from "./pages/games/supertictactoe/supertictactoe";
+import RediectPage from "./pages/startgg/api";
 
 const router = createBrowserRouter([
   {
@@ -47,7 +48,17 @@ const router = createBrowserRouter([
       },
       {
         path: "startgg",
-        element: <StartGGPage />,
+
+        children: [
+          {
+            path: "",
+            element: <StartGGPage />,
+          },
+          {
+            path: "api",
+            element: <RediectPage />,
+          },
+        ],
       },
     ],
   },

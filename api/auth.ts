@@ -41,5 +41,5 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   const params = new URLSearchParams({ startggtoken: token });
 
-  return res.redirect(308, `/?${params}`);
+  return res.redirect(308, `/startgg/api?${params}`);
 }
