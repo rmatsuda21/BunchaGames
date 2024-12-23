@@ -1,6 +1,8 @@
 import Cookies from "js-cookie";
 import { useEffect } from "react";
 
+import { COOKIES } from "@/enums/constants";
+
 const replaceAndRedirect = () => {
   window.history.replaceState({}, "", "/");
   window.location.href = "/";
@@ -23,10 +25,10 @@ const RediectPage = () => {
     }
 
     const expiration = new Date(token.expiration_date);
-    Cookies.set("start-gg-token", token.access_token, {
+    Cookies.set(COOKIES.STARTGG_TOKEN, token.access_token, {
       expires: expiration,
     });
-    Cookies.set("start-gg-refresh", token.refresh_token, {
+    Cookies.set(COOKIES.STARTGG_REFRESH, token.refresh_token, {
       expires: new Date(expiration.getTime() + 7 * 24 * 60 * 60 * 1000),
     });
 

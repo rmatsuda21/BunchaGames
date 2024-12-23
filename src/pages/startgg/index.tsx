@@ -1,3 +1,4 @@
+import { COOKIES } from "@/enums/constants";
 import {
   ApolloClient,
   ApolloProvider,
@@ -14,7 +15,7 @@ const StartGGPage = () => {
 
   useEffect(() => {
     const cookie = JSON.parse(
-      Cookies.get("start-gg-auth") || "{}"
+      Cookies.get(COOKIES.STARTGG_TOKEN) || "{}"
     )?.access_token;
 
     setClient(
