@@ -33,11 +33,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     Date.now() + expires_in * 1000
   ).toISOString();
 
-  const cookie = `start-gg-auth=${JSON.stringify({
+  const cookie = `start-gg-auth="${JSON.stringify({
     access_token,
     expiration_date,
     refresh_token,
-  })}`;
+  })}"`;
 
   console.log(cookie);
 
