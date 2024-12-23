@@ -42,7 +42,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   console.log(cookie);
 
   // res.setHeader("Set-Cookie", `${cookie}; Secure; SameSite=None; HttpOnly;`);
-  res.setHeader("Set-Cookie", `test=123`);
+  // res.setHeader("Set-Cookie", `test=123`);
 
-  return res.redirect(308, `/`);
+  const response = new Response("OK", {
+    status: 200,
+    headers: {
+      "Set-Cookie": "test=123",
+    },
+  });
+
+  return response;
 }
