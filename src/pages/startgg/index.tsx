@@ -15,15 +15,17 @@ const StartGGPage = () => {
 
   useEffect(() => {
     const cookie = Cookies.get(COOKIES.STARTGG_TOKEN);
+    console.log(cookie);
+
+    const token = cookie || import.meta.env.VITE_START_GG_TOKEN;
+    console.log(token);
 
     setClient(
       new ApolloClient({
         uri: "https://api.start.gg/gql/alpha",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${
-            cookie || import.meta.env.VITE_START_GG_TOKEN
-          }`,
+          Authorization: `Bearer ${token}`,
         },
         cache: new InMemoryCache(),
       })
