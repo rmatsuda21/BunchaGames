@@ -41,7 +41,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   console.log(cookie);
 
-  res.setHeader("Set-Cookie", `${cookie}; Secure; SameSite=None; HttpOnly;`);
+  // res.setHeader("Set-Cookie", `${cookie}; Secure; SameSite=None; HttpOnly;`);
+  res.setHeader("Set-Cookie", `test=123`);
 
   return res.redirect(308, `/`);
 }
