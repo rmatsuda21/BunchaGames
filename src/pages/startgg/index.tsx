@@ -17,8 +17,6 @@ const StartGGPage = () => {
       Cookies.get("start-gg-auth") || "{}"
     )?.access_token;
 
-    console.log(cookie || import.meta.env.VITE_START_GG_TOKEN);
-
     setClient(
       new ApolloClient({
         uri: "https://api.start.gg/gql/alpha",
