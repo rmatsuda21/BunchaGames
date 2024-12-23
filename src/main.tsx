@@ -7,11 +7,12 @@ import "./reset.css";
 
 import Homepage from "@/pages";
 import ErrorPage from "@/error";
-import HangmanPage from "@/pages/games/hangman.tsx";
+import HangmanPage from "@/pages/games/hangman/hangman";
 import GamesPage from "@/pages/games";
 import GamesPageLayout from "@/pages/games/layout";
-import FT10Page from "@/pages/games/ft10";
+import FT10Page from "@/pages/games/ft10/ft10";
 import StartGGPage from "@/pages/startgg";
+import SuperTicTacToePage from "./pages/games/supertictactoe/supertictactoe";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
           {
             path: "hangman",
             element: <HangmanPage />,
+          },
+          {
+            path: "supertictactoe",
+            element: <SuperTicTacToePage />,
           },
         ],
       },

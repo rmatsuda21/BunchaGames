@@ -1,0 +1,56 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 24px;
+  font-weight: bolder;
+  line-height: 24px;
+
+  aspect-ratio: 1 / 1;
+
+  user-select: none;
+}
+
+.p1 {
+  color: rgb(var(--p1-color));
+}
+
+.p2 {
+  color: rgb(var(--p2-color));
+}
+
+.selected.cell:not(.taken):hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.p1 .selected.cell:not(.taken):hover::before {
+  content: "X";
+  display: block;
+}
+
+.p2 .selected.cell:not(.taken):hover::before {
+  content: "O";
+  display: block;
+}
+
+.cell:nth-child(3n-2),
+.cell:nth-child(3n-1) {
+  border-right: 2px solid white;
+}
+
+.cell:nth-child(-n + 3) {
+  border-bottom: 2px solid white;
+}
+
+.cell:nth-last-child(-n + 3) {
+  border-top: 2px solid white;
+}

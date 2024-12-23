@@ -3,6 +3,9 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
+  "engines": {
+    "node": "20.14.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -20,9 +23,11 @@
     "@fortawesome/react-fontawesome": "^0.2.1",
     "@types/canvas-confetti": "^1.6.4",
     "@types/js-cookie": "^3.0.6",
+    "@types/lodash": "^4.17.5",
     "canvas-confetti": "^1.9.3",
     "classnames": "^2.5.1",
     "js-cookie": "^3.0.5",
+    "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.1"

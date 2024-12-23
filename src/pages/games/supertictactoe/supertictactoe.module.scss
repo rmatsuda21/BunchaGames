@@ -1,0 +1,77 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  width: 100%;
+
+  --p1-color: 255, 55, 55;
+  --p2-color: 48, 48, 255;
+  --p1-piece: "O";
+  --p2-piece: "X";
+
+  user-select: none;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 50vw;
+  max-width: 50vw;
+}
+
+.cell {
+  padding: 0.5rem;
+  aspect-ratio: 1 / 1;
+  box-sizing: content-box;
+}
+
+.cell:nth-child(3n-2),
+.cell:nth-child(3n-1) {
+  border-right: 2px solid white;
+}
+
+.cell:nth-child(-n + 3) {
+  border-bottom: 2px solid white;
+}
+
+.cell:nth-last-child(-n + 3) {
+  border-top: 2px solid white;
+}
+
+.selected {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.boardWin {
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 5em;
+  font-weight: bolder;
+}
+
+.p1 {
+  color: rgb(var(--p1-color));
+}
+
+.p2 {
+  color: rgb(var(--p2-color));
+}
+
+.hover.p1 {
+  background-color: rgba(var(--p1-color), 0.2);
+}
+
+.hover.p2 {
+  background-color: rgba(var(--p2-color), 0.2);
+}
+
+.noSelected .cell:not(.filled):hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.15);
+}

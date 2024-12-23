@@ -57,7 +57,7 @@ const FT10Page = () => {
   return (
     <div className={styles.wrapper}>
       <div
-        className={cn({ [`${styles.p1}`]: true, [`${styles.winner}`]: p1Win })}
+        className={cn(styles.p1, { [`${styles.winner}`]: p1Win })}
         onClick={handleP1Click}
       >
         {p1Score}
@@ -66,7 +66,7 @@ const FT10Page = () => {
         </div>
       </div>
       <div
-        className={cn({ [`${styles.p2}`]: true, [`${styles.winner}`]: p2Win })}
+        className={cn(styles.p2, { [`${styles.winner}`]: p2Win })}
         onClick={handleP2Click}
       >
         {p2Score}
